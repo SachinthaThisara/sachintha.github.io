@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sachintha Kumara | Cybersecurity Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #00ff88;
+            --secondary-color: #0a192f;
+            --text-color: #8892b0;
+            --heading-color: #ccd6f6;
+            --bg-color: #0a192f;
+            --card-bg: #112240;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: var(--heading-color);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 100px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 70px;
+            color: var(--heading-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 48px;
+            color: var(--heading-color);
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--heading-color);
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 0;
+        }
+
+        .intro {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 60px;
+            color: var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .description {
+            max-width: 600px;
+            font-size: 18px;
+            margin-bottom: 50px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            background: rgba(0, 255, 136, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .skill-item::before {
+            content: '▹';
+            color: var(--primary-color);
+            font-size: 20px;
+        }
+
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            border: 3px solid var(--primary-color);
+            filter: grayscale(100%);
+            transition: all 0.3s;
+        }
+
+        .profile-image:hover {
+            filter: grayscale(0%);
+            transform: translate(-5px, -5px);
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .company {
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        .date {
+            color: var(--text-color);
+            font-size: 13px;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .experience-item li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .experience-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 30px -10px rgba(0, 255, 136, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .folder-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+        }
+
+        .project-links a {
+            color: var(--heading-color);
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .project-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .project-title {
+            font-size: 22px;
+            color: var(--heading-color);
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-tag {
+            font-size: 12px;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border: 1px solid var(--primary-color);
+            border-radius: 3px;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-content {
+            max-width: 600px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 18px;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .contact-item a:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-links {
+            position: fixed;
+            bottom: 0;
+            left: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .social-links::after {
+            content: '';
+            width: 1px;
+            height: 90px;
+            background: var(--text-color);
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            font-size: 24px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 20px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 35px;
+            }
+
+            section {
+                padding: 80px 30px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Social Links -->
+    <div class="social-links">
+        <a href="https://github.com/yourusername" target="_blank" title="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </a>
+        <a href="https://linkedin.com/in/sachintha-kumara-b508b5257" target="_blank" title="LinkedIn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+        </a>
+        <a href="mailto:sachinthathisara001@gmail.com" title="Email">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home">
+        <p class="intro">Hi, my name is</p>
+        <h1>Sachintha Kumara.</h1>
+        <h2 class="subtitle">I secure digital landscapes.</h2>
+        <p class="description">
+            I'm a cybersecurity professional specializing in threat detection, network security, and vulnerability assessment. 
+            Currently working as a Trainee MSP at Thomas Peer Solutions, I focus on protecting infrastructure and identifying security threats before they become problems.
+        </p>
+        <a href="#contact" class="cta-button">Get In Touch</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2><span class="highlight">01.</span> About Me</h2>
+        <div class="about-content">
+            <div>
+                <p style="margin-bottom: 20px;">
+                    Hello! I'm Sachintha, a passionate cybersecurity undergraduate at SLIIT with a deep interest in protecting digital assets 
+                    and staying ahead of emerging threats. My journey in cybersecurity began with penetration testing and has evolved into 
+                    comprehensive security operations.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Currently working at Thomas Peer Solutions, I monitor client infrastructure, analyze security logs, and respond to incidents 
+                    daily. I've also contributed to the security community by discovering and responsibly disclosing 10 vulnerabilities through 
+                    bug bounty programs.
+                </p>
+                <p style="margin-bottom: 20px;">
+                    Here are some technologies and tools I've been working with:
+                </p>
+                <div class="skills-grid">
+                    <div class="skill-item">Kali Linux</div>
+                    <div class="skill-item">Burp Suite</div>
+                    <div class="skill-item">Wireshark</div>
+                    <div class="skill-item">Nmap</div>
+                    <div class="skill-item">EDR Tools</div>
+                    <div class="skill-item">Firewall Management</div>
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Machine Learning</div>
+                    <div class="skill-item">Log Analysis</div>
+                </div>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/300x300/112240/00ff88?text=Your+Photo" alt="Sachintha Kumara" class="profile-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2><span class="highlight">02.</span> Work Experience</h2>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3>Trainee MSP</h3>
+                    <p class="company">Thomas Peer Solutions</p>
+                </div>
+                <span class="date">April 2025 - Present</span>
+            </div>
+            <ul>
+                <li>Monitor client infrastructure daily to identify security incidents and performance anomalies</li>
+                <li>Analyze system logs and security alerts to detect potential threats and policy violations</li>
+                <li>Manage support tickets through Jira and prepare monthly service delivery reports</li>
+                <li>Perform data restoration using Veeam Backup & Replication</li>
+                <li>Escalate critical security incidents and coordinate incident response procedures</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <div class="experience-header">
+                <div>
+                    <h3>Intern - Managed Service Provider</h3>
+                    <p class="company">Thomas Peer Solutions</p>
+                </div>
+                <span class="date">October 2024 - April 2025</span>
+            </div>
+            <ul>
+                <li>Monitored and managed support tickets from multiple clients</li>
+                <li>Created monthly service delivery reports tracking system health indicators</li>
+                <li>Assisted in infrastructure monitoring and basic threat detection activities</li>
+                <li>Collaborated with senior team members on security incident investigations</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2><span class="highlight">03.</span> Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="folder-icon">📁</div>
+                    <div class="project-links">
+                        <a href="#" title="GitHub">⚡</a>
+                        <a href="#" title="External">🔗</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Anti-Ransomware System</h3>
+                <p class="project-description">
+                    Network-level ransomware detection system using machine learning-based anomaly detection. 
+                    Analyzes JA3 fingerprints to identify malicious SSL/TLS connections and implements automated threat detection algorithms.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Network Security</span>
+                    <span class="tech-tag">JA3 Fingerprinting</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="folder-icon">📁</div>
+                    <div class="project-links">
+                        <a href="#" title="GitHub">⚡</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Bug Bounty Research</h3>
+                <p class="project-description">
+                    Independent security researcher with 10 reported vulnerabilities through HackerOne and Bugcrowd. 
+                    Specialized in web application security testing and OWASP Top 10 vulnerability identification.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Web Security</span>
+                    <span class="tech-tag">Burp Suite</span>
+                    <span class="tech-tag">OWASP</span>
+                    <span class="tech-tag">Pentesting</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="folder-icon">📁</div>
+                    <div class="project-links">
+                        <a href="#" title="GitHub">⚡</a>
+                    </div>
+                </div>
+                <h3 class="project-title">Passwordless Authentication API</h3>
+                <p class="project-description">
+                    Secure passwordless authentication system using Magic Link technology. 
+                    Implemented secure workflows with emphasis on security best practices and comprehensive testing.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">API Development</span>
+                    <span class="tech-tag">Authentication</span>
+                    <span class="tech-tag">Security</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-content">
+            <h2><span class="highlight">04.</span> Get In Touch</h2>
+            <p class="description" style="text-align: center; margin: 30px 0;">
+                I'm currently looking for new opportunities in cybersecurity. Whether you have a question, 
+                want to collaborate on a project, or just want to say hi, feel free to reach out!
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧 Email</span>
+                    <a href="mailto:sachinthathisara001@gmail.com">sachinthathisara001@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>📱 Phone</span>
+                    <a href="tel:+94714136226">+94 71 41 36 226</a>
+                </div>
+            </div>
+            <a href="mailto:sachinthathisara001@gmail.com" class="cta-button" style="margin-top: 40px;">Say Hello</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
